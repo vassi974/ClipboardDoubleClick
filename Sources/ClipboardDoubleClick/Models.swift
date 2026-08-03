@@ -34,7 +34,7 @@ struct ClipboardHistoryItem: Codable, Identifiable, Equatable {
 
         guard let rawLine = firstNonBlank else {
             // Tout le contenu copié était une image / vide une fois le texte retiré.
-            return "[Image ou contenu sans texte]"
+            return L10n.t("image_no_text_placeholder")
         }
 
         let line = rawLine.trimmingCharacters(in: .whitespaces)

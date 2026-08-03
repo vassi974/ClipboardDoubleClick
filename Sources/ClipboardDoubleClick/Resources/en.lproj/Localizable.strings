@@ -1,0 +1,21 @@
+"search_placeholder" = "Search…";
+"menu_title" = "Menu";
+"section_pinned" = "Pinned";
+"section_today" = "Today";
+"section_yesterday" = "Yesterday";
+"section_this_week" = "This week";
+"section_older" = "Older";
+"image_no_text_placeholder" = "[Image or content without text]";
+
+"settings_clear_history" = "Clear History";
+"settings_max_items" = "Number of copies to keep";
+"settings_max_days" = "Days of history to keep (max 30)";
+"settings_clear_on_quit" = "Clear history on quit";
+"settings_plain_text_only" = "Convert everything to plain text";
+"settings_keep_rich_text" = "Keep rich text";
+"settings_quit" = "Quit";
+"settings_about" = "About";
+"settings_support" = "☕ Support";
+
+"about_title" = "V@ssi974 -2026-";
+"about_message" = "Personal project, shared with love!";

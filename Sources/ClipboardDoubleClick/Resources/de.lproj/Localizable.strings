@@ -1,0 +1,21 @@
+"search_placeholder" = "Suchen…";
+"menu_title" = "Menu";
+"section_pinned" = "Angeheftet";
+"section_today" = "Heute";
+"section_yesterday" = "Gestern";
+"section_this_week" = "Diese Woche";
+"section_older" = "Älter";
+"image_no_text_placeholder" = "[Bild oder Inhalt ohne Text]";
+
+"settings_clear_history" = "Verlauf löschen";
+"settings_max_items" = "Anzahl zu speichernder Kopien";
+"settings_max_days" = "Tage Verlauf (max. 30)";
+"settings_clear_on_quit" = "Verlauf beim Beenden löschen";
+"settings_plain_text_only" = "Alles in Klartext umwandeln";
+"settings_keep_rich_text" = "Formatierten Text behalten";
+"settings_quit" = "Beenden";
+"settings_about" = "Über";
+"settings_support" = "☕ Unterstützen";
+
+"about_title" = "V@ssi974 -2026-";
+"about_message" = "Persönliches Projekt, mit Herz geteilt!";

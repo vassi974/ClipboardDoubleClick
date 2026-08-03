@@ -1,0 +1,21 @@
+"search_placeholder" = "Rechercher…";
+"menu_title" = "Menu";
+"section_pinned" = "Épinglés";
+"section_today" = "Aujourd'hui";
+"section_yesterday" = "Hier";
+"section_this_week" = "Cette semaine";
+"section_older" = "Plus ancien";
+"image_no_text_placeholder" = "[Image ou contenu sans texte]";
+
+"settings_clear_history" = "effacer l'Historique";
+"settings_max_items" = "Nombre copie a conserver";
+"settings_max_days" = "Nombre de jours d'historique (max 30)";
+"settings_clear_on_quit" = "effacer l'historique en sortie de cession";
+"settings_plain_text_only" = "Tous convertir en texte brut";
+"settings_keep_rich_text" = "Conserver le texte enrichis";
+"settings_quit" = "Quitter";
+"settings_about" = "À propos";
+"settings_support" = "☕ Soutenir";
+
+"about_title" = "V@ssi974 -2026-";
+"about_message" = "Dev. perso partagé avec le cœur !";

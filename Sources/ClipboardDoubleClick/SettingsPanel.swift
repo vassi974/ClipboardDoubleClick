@@ -108,41 +108,41 @@ final class SettingsPanelController: NSObject {
 
         var y = height - 40
 
-        let title = NSTextField(labelWithString: "Menu")
+        let title = NSTextField(labelWithString: L10n.t("menu_title"))
         title.font = NSFont.boldSystemFont(ofSize: 15)
         title.textColor = .white
         title.frame = NSRect(x: 12, y: y, width: width - 24, height: 24)
         content.addSubview(title)
         y -= 40
 
-        let clearButton = NSButton(title: "effacer l'Historique", target: self, action: #selector(clearHistoryTapped))
+        let clearButton = NSButton(title: L10n.t("settings_clear_history"), target: self, action: #selector(clearHistoryTapped))
         styleAsMenuButton(clearButton, width: width, y: y)
         content.addSubview(clearButton)
         y -= 36
 
-        y -= addLabeledField(to: content, label: "Nombre copie a conserver", y: y, width: width, field: &maxItemsField)
-        y -= addLabeledField(to: content, label: "Nombre de jours d'historique (max 30)", y: y, width: width, field: &maxDaysField)
+        y -= addLabeledField(to: content, label: L10n.t("settings_max_items"), y: y, width: width, field: &maxItemsField)
+        y -= addLabeledField(to: content, label: L10n.t("settings_max_days"), y: y, width: width, field: &maxDaysField)
 
-        clearOnQuitCheckbox = addCheckbox(to: content, label: "effacer l'historique en sortie de cession", y: y, width: width)
+        clearOnQuitCheckbox = addCheckbox(to: content, label: L10n.t("settings_clear_on_quit"), y: y, width: width)
         y -= 30
 
-        plainTextOnlyCheckbox = addCheckbox(to: content, label: "Tous convertir en texte brut", y: y, width: width)
+        plainTextOnlyCheckbox = addCheckbox(to: content, label: L10n.t("settings_plain_text_only"), y: y, width: width)
         y -= 30
 
-        keepRichTextCheckbox = addCheckbox(to: content, label: "Conserver le texte enrichis", y: y, width: width)
+        keepRichTextCheckbox = addCheckbox(to: content, label: L10n.t("settings_keep_rich_text"), y: y, width: width)
         y -= 44
 
-        let quitButton = NSButton(title: "Quitter", target: self, action: #selector(quitTapped))
+        let quitButton = NSButton(title: L10n.t("settings_quit"), target: self, action: #selector(quitTapped))
         styleAsMenuButton(quitButton, width: width, y: y)
         content.addSubview(quitButton)
         y -= 36
 
-        let aboutButton = NSButton(title: "À propos", target: self, action: #selector(aboutTapped))
+        let aboutButton = NSButton(title: L10n.t("settings_about"), target: self, action: #selector(aboutTapped))
         styleAsMenuButton(aboutButton, width: width, y: y)
         content.addSubview(aboutButton)
         y -= 36
 
-        let supportButton = NSButton(title: "☕ Soutenir", target: self, action: #selector(supportTapped))
+        let supportButton = NSButton(title: L10n.t("settings_support"), target: self, action: #selector(supportTapped))
         styleAsMenuButton(supportButton, width: width, y: y)
         supportButton.contentTintColor = .systemYellow
         content.addSubview(supportButton)
@@ -216,8 +216,8 @@ final class SettingsPanelController: NSObject {
 
     @objc private func aboutTapped() {
         let alert = NSAlert()
-        alert.messageText = "V@ssi974 -2026-"
-        alert.informativeText = "Dev. perso partagé avec le cœur !"
+        alert.messageText = L10n.t("about_title")
+        alert.informativeText = L10n.t("about_message")
         alert.runModal()
     }
 

@@ -1,0 +1,21 @@
+"search_placeholder" = "Buscar…";
+"menu_title" = "Menu";
+"section_pinned" = "Fijados";
+"section_today" = "Hoy";
+"section_yesterday" = "Ayer";
+"section_this_week" = "Esta semana";
+"section_older" = "Más antiguo";
+"image_no_text_placeholder" = "[Imagen o contenido sin texto]";
+
+"settings_clear_history" = "Borrar historial";
+"settings_max_items" = "Número de copias a conservar";
+"settings_max_days" = "Días de historial (máx. 30)";
+"settings_clear_on_quit" = "Borrar historial al salir";
+"settings_plain_text_only" = "Convertir todo a texto sin formato";
+"settings_keep_rich_text" = "Conservar texto enriquecido";
+"settings_quit" = "Salir";
+"settings_about" = "Acerca de";
+"settings_support" = "☕ Apoyar";
+
+"about_title" = "V@ssi974 -2026-";
+"about_message" = "¡Proyecto personal, compartido con cariño!";

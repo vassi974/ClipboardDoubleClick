@@ -168,7 +168,7 @@ final class HistoryPanelController: NSObject, NSTableViewDataSource, NSTableView
         // pas au bord arrondi de la fenêtre.
         let topInset: CGFloat = 14
         searchField = NSSearchField(frame: NSRect(x: 8, y: height - 32 - topInset, width: width - 16, height: 24))
-        searchField.placeholderString = "Rechercher…"
+        searchField.placeholderString = L10n.t("search_placeholder")
         searchField.autoresizingMask = [.width, .minYMargin]
 
         scrollView = SelectionScrollView(frame: NSRect(x: 0, y: 0, width: width, height: height - 36 - topInset))
@@ -321,7 +321,7 @@ final class HistoryPanelController: NSObject, NSTableViewDataSource, NSTableView
         var newRows: [Row] = [.menuEntry]
 
         if !pinned.isEmpty {
-            newRows.append(.sectionHeader("Épinglés"))
+            newRows.append(.sectionHeader(L10n.t("section_pinned")))
             newRows.append(contentsOf: pinned.map { Row.item($0) })
         }
 
@@ -357,10 +357,10 @@ final class HistoryPanelController: NSObject, NSTableViewDataSource, NSTableView
         }
 
         return [
-            ("Aujourd'hui", today),
-            ("Hier", yesterday),
-            ("Cette semaine", thisWeek),
-            ("Plus ancien", older),
+            (L10n.t("section_today"), today),
+            (L10n.t("section_yesterday"), yesterday),
+            (L10n.t("section_this_week"), thisWeek),
+            (L10n.t("section_older"), older),
         ]
     }
 
@@ -473,7 +473,7 @@ final class HistoryPanelController: NSObject, NSTableViewDataSource, NSTableView
         case .sectionHeader:
             break // déjà traité ci-dessus
         case .menuEntry:
-            label.stringValue = "Menu"
+            label.stringValue = L10n.t("menu_title")
             label.font = NSFont.boldSystemFont(ofSize: 13)
             container.addSubview(label)
 
