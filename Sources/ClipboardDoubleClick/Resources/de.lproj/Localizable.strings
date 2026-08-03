@@ -19,3 +19,7 @@
 
 "about_title" = "V@ssi974 -2026-";
 "about_message" = "Persönliches Projekt, mit Herz geteilt!";
+
+"accessibility_alert_title" = "Bedienungshilfen-Berechtigung erforderlich";
+"accessibility_alert_message" = "ClipboardDoubleClick benötigt die Bedienungshilfen-Berechtigung, um den doppelten Rechtsklick zu erkennen. Öffne Systemeinstellungen > Datenschutz & Sicherheit > Bedienungshilfen, aktiviere die App und starte sie neu.";
+"accessibility_alert_open_settings" = "Einstellungen öffnen";

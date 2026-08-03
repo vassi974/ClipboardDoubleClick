@@ -19,3 +19,7 @@
 
 "about_title" = "V@ssi974 -2026-";
 "about_message" = "Dev. perso partagé avec le cœur !";
+
+"accessibility_alert_title" = "Permission Accessibilité requise";
+"accessibility_alert_message" = "ClipboardDoubleClick a besoin de la permission Accessibilité pour détecter le double clic droit. Ouvre Réglages Système > Confidentialité et sécurité > Accessibilité, active l'app, puis relance-la.";
+"accessibility_alert_open_settings" = "Ouvrir les réglages";

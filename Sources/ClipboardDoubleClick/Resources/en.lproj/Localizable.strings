@@ -19,3 +19,7 @@
 
 "about_title" = "V@ssi974 -2026-";
 "about_message" = "Personal project, shared with love!";
+
+"accessibility_alert_title" = "Accessibility permission required";
+"accessibility_alert_message" = "ClipboardDoubleClick needs Accessibility permission to detect the double right-click. Open System Settings > Privacy & Security > Accessibility, enable the app, then relaunch it.";
+"accessibility_alert_open_settings" = "Open Settings";

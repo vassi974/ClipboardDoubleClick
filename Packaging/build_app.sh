@@ -22,7 +22,12 @@ if [ -f "$ROOT/Packaging/AppIcon.icns" ]; then
 fi
 
 echo "==> Ad-hoc code signing (no paid Apple Developer account required)"
-codesign --force --deep --sign - "$APP"
+# --identifier fixe : sans ça, chaque ad-hoc signature dérive un identifiant du hash
+# du binaire, qui change à chaque rebuild — ce qui peut faire perdre la permission
+# Accessibilité déjà accordée par TCC entre deux versions (retour Reddit). Un
+# identifiant Bundle ID stable ne garantit pas 100% de continuité (il faudrait un
+# certificat Developer ID payant pour ça), mais limite le risque.
+codesign --force --deep --identifier "com.vassi974.clipboarddoubleclick" --sign - "$APP"
 
 echo "==> Building .dmg"
 STAGE=$(mktemp -d)

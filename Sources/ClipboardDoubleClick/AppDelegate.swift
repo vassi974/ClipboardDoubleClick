@@ -17,8 +17,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.accessory) // pas d'icône dans le Dock, utilitaire d'arrière-plan
 
         guard RightClickTap.requestAccessibilityPermissionIfNeeded() else {
-            print("[ClipboardDoubleClick] Permission Accessibilité requise. Autorise l'app dans " +
-                  "Réglages Système > Confidentialité et sécurité > Accessibilité, puis relance.")
+            // Avant : juste un print() invisible pour un utilisateur qui a lancé l'app en
+            // double-cliquant (pas de Terminal ouvert) — l'app semblait juste "ne rien faire".
+            // Signalé sur Reddit par un retour pertinent : sans compte développeur Apple payant,
+            // l'app est signée ad-hoc, et macOS (TCC) peut perdre la permission accordée entre
+            // deux versions recompilées sans prévenir. On ne peut pas éliminer totalement ce
+            // risque sans certificat Developer ID stable, mais on peut au moins ARRÊTER
+            // d'échouer silencieusement.
+            showAccessibilityPermissionAlert()
             return
         }
 
@@ -27,6 +33,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         wireHistoryPanel()
         wireSettingsPanel()
         tap.start()
+    }
+
+    private func showAccessibilityPermissionAlert() {
+        NSApp.activate(ignoringOtherApps: true)
+
+        let alert = NSAlert()
+        alert.alertStyle = .warning
+        alert.messageText = L10n.t("accessibility_alert_title")
+        alert.informativeText = L10n.t("accessibility_alert_message")
+        alert.addButton(withTitle: L10n.t("accessibility_alert_open_settings"))
+        alert.addButton(withTitle: L10n.t("settings_quit"))
+
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn,
+           let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility") {
+            NSWorkspace.shared.open(url)
+        }
+        NSApp.terminate(nil)
     }
 
     func applicationWillTerminate(_ notification: Notification) {

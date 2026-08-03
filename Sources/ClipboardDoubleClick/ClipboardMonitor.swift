@@ -30,6 +30,12 @@ final class ClipboardMonitor {
         timer = nil
     }
 
+    /// Convention nspasteboard.org, utilisée par les gestionnaires de mots de passe
+    /// (1Password, etc.) pour marquer une copie comme sensible/éphémère. Un vrai
+    /// gestionnaire d'historique doit respecter ça et ne jamais la stocker sur disque.
+    private static let concealedType = NSPasteboard.PasteboardType("org.nspasteboard.ConcealedType")
+    private static let transientType = NSPasteboard.PasteboardType("org.nspasteboard.TransientType")
+
     private func pollOnce() {
         let currentCount = pasteboard.changeCount
         guard currentCount != lastChangeCount else { return }
@@ -37,6 +43,11 @@ final class ClipboardMonitor {
 
         if ignoreNextChange {
             ignoreNextChange = false
+            return
+        }
+
+        if let types = pasteboard.types,
+           types.contains(Self.concealedType) || types.contains(Self.transientType) {
             return
         }
 
