@@ -140,6 +140,12 @@ final class SettingsPanelController: NSObject {
         let aboutButton = NSButton(title: "À propos", target: self, action: #selector(aboutTapped))
         styleAsMenuButton(aboutButton, width: width, y: y)
         content.addSubview(aboutButton)
+        y -= 36
+
+        let supportButton = NSButton(title: "☕ Soutenir", target: self, action: #selector(supportTapped))
+        styleAsMenuButton(supportButton, width: width, y: y)
+        supportButton.contentTintColor = .systemYellow
+        content.addSubview(supportButton)
     }
 
     private func styleAsMenuButton(_ button: NSButton, width: CGFloat, y: CGFloat) {
@@ -213,6 +219,12 @@ final class SettingsPanelController: NSObject {
         alert.messageText = "V@ssi974 -2026-"
         alert.informativeText = "Dev. perso partagé avec le cœur !"
         alert.runModal()
+    }
+
+    @objc private func supportTapped() {
+        if let url = URL(string: "https://buymeacoffee.com/vassi974") {
+            NSWorkspace.shared.open(url)
+        }
     }
 }
 

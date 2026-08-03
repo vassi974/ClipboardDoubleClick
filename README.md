@@ -2,6 +2,9 @@
 
 Utilitaire de presse-papiers déclenché par un **double clic droit** n'importe où sur macOS.
 
+Dev perso, partagé avec le cœur — si l'outil te sert, un café est toujours apprécié :
+☕ [buymeacoffee.com/vassi974](https://buymeacoffee.com/vassi974)
+
 Ce dossier ne peut pas être compilé depuis ce sandbox (Linux, sans AppKit) : le code a été écrit
 directement d'après la spec, à tester et itérer sur ton Mac.
 
