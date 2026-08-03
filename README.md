@@ -14,6 +14,20 @@ Dev perso, partagé avec le cœur — si l'outil te sert, un café est toujours 
 Disponible en 🇫🇷 français, 🇬🇧 anglais, 🇪🇸 espagnol et 🇩🇪 allemand — l'app se cale automatiquement
 sur la langue système (repli sur l'anglais si la langue du Mac n'est pas gérée).
 
+### Installation rapide (.dmg)
+
+Télécharge le `.dmg` depuis la page [Releases](../../releases) de ce repo, ouvre-le, glisse
+`ClipboardDoubleClick.app` dans `Applications`, puis lance l'app.
+
+L'app n'est pas notariée par Apple (pas de compte développeur payant) : au premier lancement,
+macOS va probablement dire qu'elle vient d'un développeur non identifié. Fais un **clic droit
+sur l'app > Ouvrir** (au lieu d'un double-clic normal) pour autoriser l'exception, une seule
+fois. macOS demandera aussi la permission **Accessibilité** (Réglages Système >
+Confidentialité et sécurité > Accessibilité) : c'est nécessaire pour intercepter les doubles
+clics droits partout sur le système.
+
+Pour reconstruire le `.dmg` toi-même à partir du code : `./Packaging/build_app.sh`.
+
 Ce dossier ne peut pas être compilé depuis ce sandbox (Linux, sans AppKit) : le code a été écrit
 directement d'après la spec, à tester et itérer sur ton Mac.
 
@@ -90,6 +104,19 @@ appreciated: ☕ [buymeacoffee.com/vassi974](https://buymeacoffee.com/vassi974)
 
 Available in 🇫🇷 French, 🇬🇧 English, 🇪🇸 Spanish and 🇩🇪 German — the app automatically matches
 your system language (falls back to English if your Mac's language isn't supported).
+
+### Quick install (.dmg)
+
+Download the `.dmg` from this repo's [Releases](../../releases) page, open it, drag
+`ClipboardDoubleClick.app` into `Applications`, then launch it.
+
+The app isn't notarized by Apple (no paid developer account): on first launch, macOS will
+likely say it's from an unidentified developer. **Right-click the app > Open** (instead of a
+normal double-click) to allow the one-time exception. macOS will also ask for **Accessibility**
+permission (System Settings > Privacy & Security > Accessibility): required to intercept double
+right-clicks system-wide.
+
+To rebuild the `.dmg` yourself from source: `./Packaging/build_app.sh`.
 
 This folder can't be compiled from this sandbox (Linux, no AppKit): the code was written
 directly from the spec, to be tested and iterated on your Mac.
