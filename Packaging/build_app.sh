@@ -21,13 +21,14 @@ if [ -f "$ROOT/Packaging/AppIcon.icns" ]; then
   cp "$ROOT/Packaging/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"
 fi
 
-echo "==> Ad-hoc code signing (no paid Apple Developer account required)"
-# --identifier fixe : sans ça, chaque ad-hoc signature dérive un identifiant du hash
-# du binaire, qui change à chaque rebuild — ce qui peut faire perdre la permission
-# Accessibilité déjà accordée par TCC entre deux versions (retour Reddit). Un
-# identifiant Bundle ID stable ne garantit pas 100% de continuité (il faudrait un
-# certificat Developer ID payant pour ça), mais limite le risque.
-codesign --force --deep --identifier "com.vassi974.clipboarddoubleclick" --sign - "$APP"
+echo "==> Code signing (identité locale stable, préserve les permissions Accessibilité entre rebuilds)"
+# Signature ad-hoc ("--sign -") change de hash à chaque build, ce qui fait perdre
+# la permission Accessibilité côté TCC (confirmé le 06/08/2026 sur PostIt : jusqu'à
+# 3 entrées TCC distinctes pour un même Bundle ID après plusieurs rebuilds ad-hoc).
+# "TurzxDeck Local Dev" est une identité de signature locale auto-signée, créée une
+# fois dans le trousseau, réutilisée pour toutes les apps perso de Vassili sur cette
+# machine — même principe qu'un certificat Developer ID payant, gratuit.
+codesign --force --deep --identifier "com.vassi974.clipboarddoubleclick" --sign "TurzxDeck Local Dev" "$APP"
 
 echo "==> Building .dmg"
 STAGE=$(mktemp -d)
