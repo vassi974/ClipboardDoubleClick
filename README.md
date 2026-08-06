@@ -33,6 +33,11 @@ directement d'après la spec, à tester et itérer sur ton Mac.
 
 ### Ce qui est implémenté
 
+- **Icône barre de menus** : point d'entrée qui ne dépend d'aucune permission,
+  contrairement au double clic droit. Clic gauche ouvre l'historique sous
+  l'icône. Clic droit affiche Ouvrir/Quitter. Sans permission Accessibilité
+  accordée, seul le double clic droit reste inactif — le reste de l'app
+  (historique, épinglage, presse-papiers) continue de fonctionner.
 - **Détection double clic droit global** (`RightClickTap.swift`) : un `CGEventTap` intercepte
   uniquement le 2e clic d'un double clic droit rapproché. Un simple clic droit continue de
   déclencher le menu contextuel normal de l'app — seul le 2e clic d'une paire rapide est avalé.
@@ -123,6 +128,11 @@ directly from the spec, to be tested and iterated on your Mac.
 
 ### What's implemented
 
+- **Menu bar icon**: entry point that doesn't depend on any permission, unlike
+  double right-click. Left-click opens the history under the icon. Right-click
+  shows Open/Quit. Without Accessibility permission granted, only double
+  right-click stays inactive — the rest of the app (history, pinning,
+  clipboard) keeps working.
 - **Global double right-click detection** (`RightClickTap.swift`): a `CGEventTap` intercepts
   only the 2nd click of a fast double right-click. A single right-click still triggers the
   app's normal context menu — only the 2nd click of a quick pair is swallowed.
