@@ -21,6 +21,9 @@ final class RightClickTap {
     private var lastRightDownLocation: CGPoint = .zero
 
     private let distanceThreshold: CGFloat = 6.0
+    /// Anti-rebond : intervalle minimal (en secondes) entre deux clics droits pour
+    /// qu'ils comptent comme un vrai double clic. En dessous = rebond de la souris, ignoré.
+    private let debounceInterval: CFTimeInterval = 0.05
 
     static func requestAccessibilityPermissionIfNeeded() -> Bool {
         let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as String: true]
@@ -86,6 +89,13 @@ final class RightClickTap {
         let dx = location.x - lastRightDownLocation.x
         let dy = location.y - lastRightDownLocation.y
         let distance = (dx * dx + dy * dy).squareRoot()
+
+        // Anti-rebond : un clic arrivé quasi instantanément après le précédent
+        // (rebond mécanique du switch de la souris) n'est pas un vrai 2e clic.
+        // On le laisse passer tel quel, sans le compter ni déclencher le panneau.
+        if dt > 0 && dt < debounceInterval && distance < distanceThreshold {
+            return Unmanaged.passUnretained(event)
+        }
 
         let isDoubleClick = dt < NSEvent.doubleClickInterval && distance < distanceThreshold
 
